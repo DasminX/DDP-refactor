@@ -1,0 +1,169 @@
+.contact {
+  width: 100%;
+  height: auto;
+
+  .contact__infos {
+    @include flex(column, center, center);
+
+    @media screen and (min-width: 1024px) {
+      @include flex(row, center, flex-start);
+      width: 100%;
+    }
+
+    .contact__square {
+      @include flex(column, flex-start, center);
+
+      @media screen and (min-width: 1024px) {
+        @include flex(column, flex-start, center);
+        width: 100%;
+      }
+
+      text-align: center;
+      margin-bottom: 1.5rem;
+      font-style: italic;
+
+      &__icon {
+        svg {
+          font-size: 150%;
+          color: $brass;
+        }
+
+        p {
+          text-transform: uppercase;
+          font-weight: 600;
+          color: $brass;
+          margin: 0.5rem auto 0;
+        }
+      }
+
+      &__info {
+        & .contact-btn {
+          color: $white;
+          background-color: transparent;
+          border: 1px solid $white;
+          padding: 0.4rem 2rem;
+          cursor: pointer;
+          border-radius: 1rem;
+          transition: 0.5s;
+
+          &:hover {
+            background-color: $white;
+            color: $graphite;
+          }
+
+          &-hidden {
+            transform: scale(0);
+          }
+        }
+        p {
+          font-weight: bold;
+
+          &.name {
+            color: $brass;
+          }
+        }
+      }
+
+      .contact__info {
+        padding: 0.25rem;
+        font-style: italic;
+
+        @media screen and (min-width: 1024px) {
+          padding: 0;
+        }
+      }
+    }
+  }
+
+  .contact__socials {
+    width: 100%;
+
+    .contact__list {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: row;
+      list-style-type: none;
+      padding: 0.3rem;
+
+      .contact__social {
+        padding: 0 0.75rem;
+        font-size: 1.75rem;
+
+        a {
+          svg path {
+            transition: 0.3s;
+          }
+
+          @media screen and (min-width: 1024px) {
+            margin-left: 0.5rem;
+            margin-right: 0.5rem;
+
+            &:hover svg path {
+              fill: $brass;
+              stroke: $brass;
+              color: $brass;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .contact__map {
+    width: 100%;
+    margin: 2rem auto;
+    height: auto;
+    transition: 0.3s;
+
+    picture,
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    @media screen and (min-width: 1024px) {
+      width: 70%;
+      cursor: pointer;
+
+      &:hover {
+        transform: scale(1.04);
+      }
+    }
+  }
+}
+
+/* .limiter {
+  width: 100%;
+  margin: 2rem auto;
+  height: auto;
+  overflow: hidden;
+
+  @media screen and (min-width: 1024px) {
+    width: 70%;
+  }
+
+  .contact__map {
+    transition: 0.4s;
+
+    @media screen and (min-width: 1024px) {
+      cursor: pointer;
+
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+
+    a {
+      display: block;
+
+      picture,
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+} */

@@ -1,0 +1,148 @@
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3rem;
+  background-color: $lightblue;
+  transition: height 0.3s, background-color 0.3s;
+  overflow: hidden;
+  z-index: 1000000;
+
+  @media screen and (min-width: 1024px) {
+    padding: 0.5rem;
+  }
+
+  &.scrolled {
+    background-color: $graphite;
+
+    & .nav__list {
+      li {
+        a.current-tab {
+          color: $brass;
+        }
+      }
+    }
+  }
+
+  &__toggle {
+    @include flex(row, flex-end, center);
+    height: 3rem;
+    width: 10%;
+    margin-left: auto;
+
+    @media screen and (min-width: 1024px) {
+      display: none;
+    }
+
+    svg {
+      font-size: 1.5rem;
+      margin-right: 1rem;
+      transition: 0.3s;
+      transform: translateX(150%);
+
+      &#bars {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      &#xmark {
+        opacity: 0;
+        visibility: hidden;
+      }
+    }
+  }
+
+  &__list {
+    @include flex(column, space-around, center);
+    font-size: 110%;
+    transition: 0.3s;
+
+    @media screen and (min-width: 1024px) {
+      flex-direction: row;
+      width: 80%;
+      margin: 0 auto;
+    }
+
+    li {
+      width: 100%;
+      text-align: center;
+      transition: 0.3s;
+
+      @media screen and (min-width: 1024px) {
+        &:hover a {
+          color: $brass;
+        }
+      }
+
+      a {
+        width: 100%;
+        height: 100%;
+        display: block;
+        transition: 0.3s;
+
+        &.current-tab {
+          color: $graphite;
+        }
+      }
+
+      .nav__item--socials {
+        @include flex(row, space-evenly, center);
+        width: 50%;
+        margin: 0 auto;
+
+        @media screen and (min-width: 1024px) {
+          margin: 0 0 0 auto;
+        }
+
+        a {
+          width: auto;
+          height: 100%;
+          aspect-ratio: 1/1;
+          font-size: 150%;
+
+          svg path {
+            transition: 0.3s;
+          }
+
+          @media screen and (min-width: 1024px) {
+            margin-left: 0.5rem;
+            margin-right: 0.5rem;
+
+            &:hover svg path {
+              fill: $brass;
+              stroke: $brass;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &.nav__active {
+    height: 100vh;
+
+    .nav__toggle {
+      svg {
+        transform: translateX(0);
+
+        &#bars {
+          opacity: 0;
+          visibility: hidden;
+        }
+
+        &#xmark {
+          opacity: 1;
+          visibility: visible;
+        }
+      }
+    }
+
+    & .nav__list {
+      li {
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+      }
+    }
+  }
+}

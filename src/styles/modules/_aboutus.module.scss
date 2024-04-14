@@ -1,0 +1,27 @@
+/* w ./about-us/index.html */
+.aboutus {
+  & .mainsection__presentation {
+    @media screen and (min-width: 1024px) {
+      grid-template-columns: repeat(3, 1fr);
+      margin: 0 auto 6rem;
+
+      & > .img-placeholder {
+        grid-column: 1/2;
+      }
+    }
+
+    .textblock {
+      @media screen and (min-width: 1024px) {
+        grid-column: 2/-1;
+
+        &.extend {
+          grid-column: 1/-1;
+        }
+      }
+
+      & > p:nth-of-type(1) {
+        margin-top: 0;
+      }
+    }
+  }
+}
