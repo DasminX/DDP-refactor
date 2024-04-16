@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { MouseEventHandler } from "react";
 
 const NAVBAR_ITEMS = [
   {
@@ -40,7 +41,11 @@ const NAVBAR_ITEMS = [
   },
 ];
 
-export const NavbarLinks = () => {
+type NavbarLinksProps = {
+  onClick: MouseEventHandler<HTMLAnchorElement>;
+};
+
+export const NavbarLinks = ({ onClick }: NavbarLinksProps) => {
   // const pathname = usePathname();
   // console.log(pathname);
 
@@ -50,7 +55,12 @@ export const NavbarLinks = () => {
         // TODO active path
         return (
           <li key={item.id} className={`nav__item`}>
-            <Link id={item.id} href={item.href} aria-label={item.title}>
+            <Link
+              id={item.id}
+              href={item.href}
+              aria-label={item.title}
+              onClick={onClick}
+            >
               {item.text}
             </Link>
           </li>

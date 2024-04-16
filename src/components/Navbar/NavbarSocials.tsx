@@ -1,9 +1,14 @@
 import Link from "next/link";
+import { MouseEventHandler } from "react";
 
-export const NavbarSocials = () => {
+type NavbarSocialsProps = {
+  onClick: MouseEventHandler<HTMLDivElement>;
+};
+
+export const NavbarSocials = ({ onClick }: NavbarSocialsProps) => {
   return (
     <li className="nav__item">
-      <div className="nav__item--socials">
+      <div className="nav__item--socials" onClick={onClick}>
         <Link
           href="https://instagram.com/dd.bezpiecznaprzystan"
           target="_blank"

@@ -1,6 +1,5 @@
 import { SourcePicture } from "@/components/_shared/SourcePicture";
 import { TextblockDescription } from "./Description";
-import { FadeUpLine } from "../../_shared/FadeUpLine";
 
 export const BriefAboutUs = () => {
   return (
